@@ -55,5 +55,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test:rules:1.2.0'
 
+    implementation project(':joker')
+
 }
 apply plugin: 'com.google.gms.google-services'
