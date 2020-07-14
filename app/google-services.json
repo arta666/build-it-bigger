@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425153812457",
+    "firebase_url": "https://iron-inkwell-125113.firebaseio.com",
+    "project_id": "iron-inkwell-125113",
+    "storage_bucket": "iron-inkwell-125113.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425153812457:android:ec648fbc784eb2a38d9d78",
+        "android_client_info": {
+          "package_name": "com.udacity.gradle.builditbigger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425153812457-qklmjkuk57pbe8lcf2t9ksr8af1bgat7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.gradle.builditbigger",
+            "certificate_hash": "cff4288436638cf7fbbb4b1a22449e6cebe57719"
+          }
+        },
+        {
+          "client_id": "425153812457-flge9fq9voj54glnhtnieh3fhnmj8hsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe4zRLaAfvVX5EBdx08A0L3WZ25LB4Oas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425153812457-flge9fq9voj54glnhtnieh3fhnmj8hsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+// V2: Apply the new Endpoints Framework client plugin
+// V2: Apply the new Endpoints Framework client plugin
+apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.builditbigger"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+        packagingOptions {
+            pickFirst "META-INF/DEPENDENCIES"
+            // exclude "META-INF/DEPENDENCIES"
+        }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // V2: Endpoints Framework v2 migration
+    endpointsServer project(path: ':backend', configuration: 'endpoints')
+    implementation 'com.google.api-client:google-api-client:1.30.10'
+    implementation 'com.google.http-client:google-http-client-android:1.22.0'
+
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.4'
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+
+}
+apply plugin: 'com.google.gms.google-services'
