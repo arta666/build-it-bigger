@@ -14,19 +14,10 @@ import android.view.ViewGroup;
 
 import com.arman.jokviewer.app.Constant;
 import com.arman.jokviewer.ui.activity.JokActivity;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.contract.JokeContract;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
 import com.udacity.gradle.builditbigger.presenter.MainPresenter;
-
-import org.jetbrains.annotations.NotNull;
-
-import static com.udacity.gradle.builditbigger.R.string.interstitial_ad_unit_id;
-
 
 /**
  * Created by Arman 2020
@@ -54,11 +45,10 @@ public class MainActivityFragment extends Fragment implements JokeContract.View,
     }
 
     @Override
-    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMainBinding.inflate(getLayoutInflater(), container, false);
-        View view = binding.getRoot();
-        return view;
+        return binding.getRoot();
     }
 
 
