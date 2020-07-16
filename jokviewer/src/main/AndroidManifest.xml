@@ -3,7 +3,7 @@
     package="com.arman.jokviewer">
 
     <application>
-        <activity android:name=".JokActivity"></activity>
+        <activity android:name=".ui.activity.JokActivity" />
     </application>
 
 </manifest>

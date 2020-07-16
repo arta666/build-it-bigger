@@ -3,6 +3,7 @@
 
 buildscript {
     repositories {
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -13,6 +14,7 @@ buildscript {
 }
 
 repositories {
+    mavenCentral()
     jcenter();
 }
 
@@ -23,30 +25,34 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
     // V2: Endpoints Framework v2 migration
-    implementation 'com.google.endpoints:endpoints-framework:2.0.9'
+    implementation group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.80'
+    implementation 'com.google.endpoints:endpoints-framework:2.0.10'
     implementation 'javax.inject:javax.inject:1'
 
     implementation 'javax.servlet:servlet-api:2.5'
+
+    implementation project(':joker')
 
 }
 
 // V2: Define deployment configuration using the new App Engine plugin
 // with the appengine closure
+
 appengine {  // App Engine tasks configuration
     deploy {   // deploy configuration
-
-        // The following is used for acceptance tests and
-        // is not required for a migration.
-        project = findProperty("appengine.deploy.project")
         version = findProperty("appengine.deploy.version")
+
         def promoteProp = findProperty("appengine.deploy.promote")
         if (promoteProp != null) {
             promote = new Boolean(promoteProp)
         }
     }
 }
+
+group   = 'com.example.helloendpoints' // Generated output GroupId
+version = '1'

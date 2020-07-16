@@ -17,10 +17,33 @@ android {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Specifies one flavor dimension.
+    flavorDimensions "default"
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+
+        }
+    }
+
+
+    sourceSets {
+        free {
+            manifest.srcFile 'src/free/AndroidManifest.xml'
         }
     }
 
@@ -34,7 +57,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
@@ -56,6 +79,9 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.2.0'
 
     implementation project(':joker')
+    implementation project(':jokviewer')
+
+    testImplementation 'org.mockito:mockito-core:3.1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'
